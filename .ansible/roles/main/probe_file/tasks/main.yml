@@ -1,0 +1,6 @@
+---
+- name: Copy probe file into place.
+  copy:
+    content: "<html><body>{{ probe_file__hostname }}</body></html>"
+    dest: /var/www/html/probe.html
+  become: true

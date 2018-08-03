@@ -1,0 +1,9 @@
+---
+- name: Copy haproxy.cfg file into place.
+  copy:
+    src: etc_haproxy_haproxy_cfg
+    dest: /etc/haproxy/haproxy.cfg
+  become: true
+- name: selinux - allow haproxy to connect to any port.
+  command: setsebool -P haproxy_connect_any=1
+  become: true

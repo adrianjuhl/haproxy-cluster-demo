@@ -1,0 +1,12 @@
+---
+- hosts: all
+  roles:
+    - { role: haproxy }
+    - { role: haproxy_config }
+    - { role: vim }
+  tasks:
+    - name: Restart haproxy.
+      service:
+        name: haproxy
+        state: restarted
+      become: true

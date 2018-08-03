@@ -1,0 +1,12 @@
+---
+- name: Install haproxy.
+  yum:
+    name: haproxy
+    state: latest
+  become: true
+- name: Ensure haproxy is running (and enable it at boot).
+  service:
+    name: haproxy
+    state: started
+    enabled: true
+  become: true
